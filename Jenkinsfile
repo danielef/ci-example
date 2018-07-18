@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Cobertura') {
       steps {
-        sh 'lein cloverage'
+        sh 'lein cloverage --fail-threshold=80'
       }
     }
     stage('jar') {
