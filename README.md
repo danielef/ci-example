@@ -1,10 +1,9 @@
-# leveldb-micro
+# ci-example
+[![Build Status](https://ci.interware.mx/jenkins/job/ci-example/job/master/badge/icon)](https://ci.interware.mx/jenkins/job/ci-example/job/master/)
 
-A Clojure library designed to ... well, that part is up to you.
+Small library to test our CI environment
 
 ## Usage
-
-FIXME
 
 ## License
 
