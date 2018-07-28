@@ -1,5 +1,5 @@
 # ci-example 
-[ ![Jenkins for danielef/ci-example](https://ci.interware.mx/jenkins/buildStatus/icon?job=ci-example/master)](https://ci.interware.mx/jenkins/blue/organizations/jenkins/ci-example/activity)
+![Build Status](https://ci.interware.mx/jenkins/buildStatus/icon?x=jsjdskjs&job=ci-example/master)
 
 Small library to test our CI environment
 
