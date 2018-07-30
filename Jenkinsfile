@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'naartjie/alpine-lein'
-      args '--user=root -v /opt/jenkins_files/cacerts:/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -v /opt/jenkins_files/.lein:/var/jenkins_home/.lein'
+      args '--user=root -v /opt/jenkins_files/cacerts:/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -v /opt/jenkins_files/.lein:/root/.lein'
     }
 
   }
@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Nexus') {
       steps {
-        sh 'cat /var/jenkins_home/.lein/profile.clj && lein deploy'
+        sh 'cat $HOME/.lein/profile.clj && lein deploy'
       }
     }
   }
