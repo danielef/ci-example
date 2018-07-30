@@ -3,8 +3,8 @@ pipeline {
     docker {
       image 'naartjie/alpine-lein'
       args '''--user=root
---v /opt/jenkins_files/cacerts:/etc/ssl/certs/java/cacerts
---v /opt/jenkins_files/.lein:/root/.lein'''
+-v /opt/jenkins_files/cacerts:/etc/ssl/certs/java/cacerts
+-v /opt/jenkins_files/.lein:/root/.lein'''
     }
 
   }
