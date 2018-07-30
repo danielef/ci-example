@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Nexus') {
       steps {
-        sh 'cat $HOME/.lein/profile.clj && lein deploy'
+        sh 'cat $HOME/.lein/profiles.clj && lein deploy'
       }
     }
   }
