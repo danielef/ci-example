@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'naartjie/alpine-lein'
-      args '--user=root -v /opt/jenkins_files/cacerts:/var/jenkins_home/cacerts'
+      args '--user=root -v /opt/jenkins_files/cacerts:/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts'
     }
 
   }
