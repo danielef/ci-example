@@ -2,9 +2,7 @@ pipeline {
   agent {
     docker {
       image 'naartjie/alpine-lein'
-      args '''--user=root
--v /opt/jenkins_files/cacerts:/root/cacerts
--v /opt/jenkins_files/.lein:/root/.lein'''
+      args '--user=root -v /opt/jenkins_files/cacerts:/root/cacerts -v /opt/jenkins_files/.lein:/root/.lein'
     }
 
   }
