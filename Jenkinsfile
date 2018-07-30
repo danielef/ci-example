@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Nexus') {
       steps {
-        sh 'lein deploy'
+        sh 'cat /var/jenkins_home/.lein/profile.clj && lein deploy'
       }
     }
   }
