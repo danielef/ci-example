@@ -2,9 +2,9 @@ pipeline {
   agent {
     docker {
       image 'naartjie/alpine-lein'
-      args '--user=root'
+      args '--user=root -v /opt/jenkins_files/cacerts:/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -v /opt/jenkins_files/.lein:/root/.lein'
     }
-    
+
   }
   stages {
     stage('Test') {
@@ -17,9 +17,14 @@ pipeline {
         sh 'lein cloverage --fail-threshold=80'
       }
     }
-    stage('jar') {
+    stage('Package') {
       steps {
         sh 'lein jar'
+      }
+    }
+    stage('Nexus') {
+      steps {
+        sh 'cat $HOME/.lein/profiles.clj && lein deploy'
       }
     }
   }
