@@ -7,4 +7,5 @@
   :plugins [[lein-cloverage "1.0.11"]]
   
   :repositories [["snapshots" "https://ci.interware.mx/nexus/repository/interware-snapshot"]
-                 ["releases" "https://ci.interware.mx/nexus/repository/interware-releases"]])
+                 ["releases" {:sign-releases false 
+                              :url "https://ci.interware.mx/nexus/repository/interware-release"}]])
