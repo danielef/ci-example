@@ -1,4 +1,4 @@
-(defproject interware.mx/ci-example "0.1.0-SNAPSHOT"
+(defproject interware.mx/ci-example "0.1.0"
   :description "ci example project"
   :url "https://github.com/danielef/ci-example"
   :license {:name "Eclipse Public License"
