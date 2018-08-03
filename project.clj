@@ -1,4 +1,4 @@
-(defproject interware.mx/ci-example "0.1.0-SNAPSHOT"
+(defproject interware.mx/ci-example "0.1.0"
   :description "ci example project"
   :url "https://github.com/danielef/ci-example"
   :license {:name "Eclipse Public License"
@@ -7,4 +7,5 @@
   :plugins [[lein-cloverage "1.0.11"]]
   
   :repositories [["snapshots" "https://ci.interware.mx/nexus/repository/interware-snapshot"]
-                 ["releases" "https://ci.interware.mx/nexus/repository/interware-releases"]])
+                 ["releases" {:sign-releases false 
+                              :url "https://ci.interware.mx/nexus/repository/interware-release"}]])
