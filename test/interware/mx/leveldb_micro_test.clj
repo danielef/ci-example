@@ -1,6 +1,6 @@
 (ns interware.mx.leveldb-micro-test
   (:require [clojure.test :refer [deftest is testing]]
-            [interware.mx.leveldb-micro :refer [suma resta multi div]]))
+            [interware.mx.leveldb-micro :refer [suma resta multi div -main]]))
 
 (deftest -suma
   (testing "Probamos funcion suma"
@@ -41,3 +41,7 @@
     (is (= (div 0 1 2 3 4 5) 0)))
   (testing "Probamos funcion suma con aridad 6 con letras"
     (is (= (div 0 1 2 3 "A" 5) nil))))
+
+(deftest -main-test
+  (testing "Probando funcion main")
+  (is (= (-main) nil)))
