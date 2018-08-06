@@ -23,8 +23,17 @@ pipeline {
       }
     }
     stage('Nexus') {
-      steps {
-        sh 'cat $HOME/.lein/profiles.clj && lein deploy'
+      parallel {
+        stage('Nexus') {
+          steps {
+            sh 'cat $HOME/.lein/profiles.clj && lein deploy'
+          }
+        }
+        stage('Distro') {
+          steps {
+            sh 'ls -la'
+          }
+        }
       }
     }
   }
