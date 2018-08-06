@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'naartjie/alpine-lein'
       args '--user=root -v /opt/jenkins_files/cacerts:/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -v /opt/jenkins_files/.lein:/root/.lein'
+      image 'interwaremx/alpine-lein-maven:1.0'
     }
 
   }
