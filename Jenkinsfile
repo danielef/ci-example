@@ -35,7 +35,7 @@ pipeline {
     stage('Publish') {          
       steps {
         withCredentials([usernameColonPassword(credentialsId: 'IW_CI', variable: 'NEXUS_TOKEN')]) {
-          sh 'bin/publish-distro.sh $NEXUS_TOKEN'
+          sh 'apk add --no-cache curl && bin/publish-distro.sh $NEXUS_TOKEN'
         }
       }
     }
