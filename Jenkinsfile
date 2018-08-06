@@ -30,8 +30,11 @@ pipeline {
           }
         }
         stage('Distro') {
+          
           steps {
-            sh 'ls -la'
+            withCredentials([string(credentialsId: 'IW_CI', variable: 'NEXUS_TOKEN')]) {
+              sh 'bin/publish-distro.sh $NEXUS_TOKEN'
+            }
           }
         }
       }
