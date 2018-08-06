@@ -27,5 +27,17 @@ pipeline {
         sh 'cat $HOME/.lein/profiles.clj && lein deploy'
       }
     }
+    stage('Distro') {
+      steps {
+        sh 'bin/make-distro.sh'
+      }
+    }
+    stage('Publish') {          
+      steps {
+        withCredentials([usernameColonPassword(credentialsId: 'IW_CI', variable: 'NEXUS_TOKEN')]) {
+          sh 'apk add --no-cache curl && bin/publish-distro.sh $NEXUS_TOKEN'
+        }
+      }
+    }
   }
 }
