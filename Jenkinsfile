@@ -23,19 +23,19 @@ pipeline {
       }
     }
     stage('Nexus') {
-      parallel {
-        stage('Nexus') {
-          steps {
-            sh 'cat $HOME/.lein/profiles.clj && lein deploy'
-          }
-        }
-        stage('Distro') {
-          
-          steps {
-            withCredentials([string(credentialsId: 'IW_CI', variable: 'NEXUS_TOKEN')]) {
-              sh 'bin/publish-distro.sh $NEXUS_TOKEN'
-            }
-          }
+      steps {
+        sh 'cat $HOME/.lein/profiles.clj && lein deploy'
+      }
+    }
+    stage('Distro') {
+      steps {
+        sh 'bin/make-distro.sh'
+      }
+    }
+    stage('Publish') {          
+      steps {
+        withCredentials([string(credentialsId: 'IW_CI', variable: 'NEXUS_TOKEN')]) {
+          sh 'bin/publish-distro.sh $NEXUS_TOKEN'
         }
       }
     }
