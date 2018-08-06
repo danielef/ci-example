@@ -34,7 +34,7 @@ pipeline {
     }
     stage('Publish') {          
       steps {
-        withCredentials([string(credentialsId: 'IW_CI', variable: 'NEXUS_TOKEN')]) {
+        withCredentials([usernameColonPassword(credentialsId: 'IW_CI', variable: 'NEXUS_TOKEN')]) {
           sh 'bin/publish-distro.sh $NEXUS_TOKEN'
         }
       }
